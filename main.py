@@ -6,6 +6,7 @@ region_list = ["ap-south-1", "eu-west-3", "eu-west-2", "eu-west-1", "ap-northeas
                "sa-east-1", "ca-central-1", "ap-southeast-1", "ap-southeast-2", "eu-central-1", "us-east-1",
                "us-east-2", "us-west-1", "us-west-2"]
 instance_list = []
+instance_count = 0
 
 for region in region_list:
     try:
@@ -22,11 +23,15 @@ for region in region_list:
                               instance.instance_type, instance.key_name,
                               instance.image_id, instance.id, region)
             instance_list.append(instance_tuple)
+            instance_count += 1
     except Exception as e:
-        print("Error %s during querying the %s region.".format(e, region))
+        print("Error {} during querying the {} region.".format(e, region))
 
 
 headers = ["private_ip_address", "public_ip_address", "state", "instance_type",
            "key_pair_name", "image_id", "instance_id", "region"]
-
+print('\n')
 print(tabulate(instance_list, headers=headers))
+print('\n')
+print("Total Instances Queried: {}".format(instance_count))
+print('\n')
