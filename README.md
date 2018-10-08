@@ -7,4 +7,4 @@ To get started, you'll need the following:
   * A good ole copy of the main.py script in this repository
   
 If everything is set correctly...and I didn't forget anything... run the miner... I mean script.
-  ![alt text](screenshots/output.png)
+  ![alt text](output.png)
